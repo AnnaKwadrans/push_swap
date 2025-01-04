@@ -1,23 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_ctype2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: akwadran <akwadran@student.42madrid.com>   +#+  +:+       +#+        */
+/*   By: akwadran <akwadran@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/21 16:33:40 by akwadran          #+#    #+#             */
-/*   Updated: 2024/12/21 16:33:43 by akwadran         ###   ########.fr       */
+/*   Created: 2024/09/18 22:25:00 by akwadran          #+#    #+#             */
+/*   Updated: 2024/10/21 16:32:51 by akwadran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	main(int argc, char *argv[])
+#include "libft.h"
+
+int	ft_toupper(int c)
 {
-	if (argc == 1)
-		return (0);
-	else
-		format_parameters(argc, argv);
-	
-	
-	// algorithm
+	if (c >= 'a' && c <= 'z')
+		c -= 32;
+	return (c);
+}
+
+int	ft_tolower(int c)
+{
+	if (c >= 'A' && c <= 'Z')
+		c += 32;
+	return (c);
+}
+
+int	ft_isspace(int c)
+{
+	if (c == ' ' || (c >= '\t' && c <= '\r'))
+		return (1);
 	return (0);
 }

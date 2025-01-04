@@ -1,4 +1,3 @@
-// LIB = ar -rcs
 RM = rm -f
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
@@ -6,14 +5,17 @@ NAME = push_swap
 
 SRC = main.c push_swap.c
 
-OBJ = $(SRC:.c=.o)
+$(LIB):
+	$(LIB)
 
-$(NAME): $(OBJ)
-	$(LIB) $(NAME) $(OBJ)
+$(NAME):
+	$(CC) $(CFLAGS) -o $(NAME) $(SRC) libft.a
 
 .PHONY: all clean fclean re
 
-all: $(NAME)
+all: 
+	cd Libft $$ make $@
+	$(NAME)
 
 clean:
 	$(RM) $(OBJ)

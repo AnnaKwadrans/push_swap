@@ -5,64 +5,33 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: akwadran <akwadran@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/21 16:22:02 by akwadran          #+#    #+#             */
-/*   Updated: 2024/12/29 20:52:24 by akwadran         ###   ########.fr       */
+/*   Created: 2024/12/21 16:33:40 by akwadran          #+#    #+#             */
+/*   Updated: 2025/01/04 14:44:13 by akwadran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h> // quitar
 #include "push_swap.h"
 
-static struct s_stack	*split_parameter(char *str)
+int	main(int argc, char *argv[])
 {
-	int	i;
-	 i = 0;
-	while (str[i])
+	t_list	*stack_a;
+	//t_list	*stack_b;
+	
+	printf("%lu\n", sizeof(void *));
+	//arguments
+	// Algunos de los posibles errores son: argumentos que no son enteros, argumentos superiores a un número entero, y/o encontrar números duplicados.
+	if (argc <= 1)
+		return (0);
+	stack_a = format_parameters(argc, argv);
+
+	while (stack_a != NULL)
 	{
-		if (!ft_isdigit(str[i]) || !ft_isspace(str[i]))
-		{
-			ft_putstr_fd("Error\n", 1);
-			return (NULL);
-		}
+		printf("%d\n", *((int *)stack_a->content));
 	}
-}
-
-struct s_stack	format_parameters(int argc, char** argv)
-{
-	struct s_stack	a;
-	int	n;
-	char	*param;
-
-	n = 1;
-	while (n <= argc)
-	{
-		param = ft_strdup(argv[n]);
-		n++;
-	}
-	return (a);
-}
-
-
-
-
-char	**ft_split(char const *s, char c)
-{
-	int		count;
-	char	**array;
-	int		i;
-
-	count = split_count(s, c);
-	array = init_array(s, count, c);
-	if (array == NULL)
-		return (NULL);
-	i = 0;
-	while (array[i] != NULL)
-	{
-		while (*s != '\0' && *s == c)
-			s++;
-		ft_strlcpy(array[i], s, split_strlen(c, s) + 1);
-		while (*s != '\0' && *s != c)
-			s++;
-		i++;
-	}
-	return (array);
+	
+	//ft_lstmap(stack_a, printf("%d\n", *((int *)stack_a->content)), free);
+	ft_lstclear(&stack_a, free);
+	
+	return (0);
 }
