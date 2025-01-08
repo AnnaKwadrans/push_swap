@@ -6,7 +6,7 @@
 /*   By: akwadran <akwadran@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 12:24:30 by akwadran          #+#    #+#             */
-/*   Updated: 2025/01/06 16:29:24 by akwadran         ###   ########.fr       */
+/*   Updated: 2025/01/08 19:20:32 by akwadran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,17 +39,17 @@ void	print_array(char **args_array) //quitar
 	free(args_array);
 }
 
-t_list	**init_list(char **args_array)
+t_list	*init_list(char **args_array)
 {
-	t_list	**stack_a;
+	t_list	*stack_a;
 	int	i;
 
 	i = 0;
-	*stack_a = ft_lstnew(args_array[i]);
+	stack_a = ft_lstnew(args_array[i]);
 	i++;
 	while (args_array[i] != NULL)
 	{
-		ft_lstadd_back(stack_a, ft_lstnew(args_array[i]));
+		ft_lstadd_back(&stack_a, ft_lstnew(args_array[i]));
 		i++;
 	}
 	return (stack_a);
@@ -57,12 +57,13 @@ t_list	**init_list(char **args_array)
 
 void	print_list(t_list *stack) //quitar
 {
-	int	i;
-
-	i = 0;
+	char	*temp;
+	
 	while (stack != NULL)
 	{
-		printf("%s\n", *((char **)stack->content));
+		temp = ft_strdup(stack->content);
+		printf("%s\n", temp);
+		free(temp);
 		stack = stack->next;
 	}
 }

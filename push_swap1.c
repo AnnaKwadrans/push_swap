@@ -6,7 +6,7 @@
 /*   By: akwadran <akwadran@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 12:21:01 by akwadran          #+#    #+#             */
-/*   Updated: 2025/01/06 17:30:49 by akwadran         ###   ########.fr       */
+/*   Updated: 2025/01/08 19:23:40 by akwadran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(int argc, char *argv[])
 	//print_array(args_array); //quitar
 	stack_a = NULL;
 	stack_a = init_list(args_array);
-	print_list(stack_a);
-	ft_lstclear(stack_a, free);
+	print_list(stack_a); //quitar
+	ft_lstclear(&stack_a, free);
 	return (0);
 }
