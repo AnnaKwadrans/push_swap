@@ -6,7 +6,7 @@
 /*   By: akwadran <akwadran@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 12:24:30 by akwadran          #+#    #+#             */
-/*   Updated: 2025/01/08 19:20:32 by akwadran         ###   ########.fr       */
+/*   Updated: 2025/01/11 18:42:32 by akwadran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ t_list	*init_list(char **args_array)
 		ft_lstadd_back(&stack_a, ft_lstnew(args_array[i]));
 		i++;
 	}
+	free (args_array);
+	args_array = NULL;
 	return (stack_a);
 }
 

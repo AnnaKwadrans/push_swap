@@ -1,50 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akwadran <akwadran@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/08 23:16:32 by akwadran          #+#    #+#             */
-/*   Updated: 2025/01/11 19:11:11 by akwadran         ###   ########.fr       */
+/*   Created: 2025/01/11 17:42:46 by akwadran          #+#    #+#             */
+/*   Updated: 2025/01/11 18:42:22 by akwadran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*swap(t_list *stack)
+t_list	*rotate(t_list *stack)
 {
 	t_list	*first;
-	t_list	*second;
-	t_list	*third;
 
-	if (stack->next != NULL && stack != NULL)
+	if (stack != NULL && stack->next != NULL)
 	{
 		first = stack;
-		second = stack->next;
-		third = stack->next->next;
-		stack = second;
-		stack->next = first;
-		stack->next->next = third;
+		stack = stack->next;
+		ft_lstadd_back(&stack, first);
+		first->next = NULL;
 	}
 	return (stack);
 }
 
-void	sa(t_list **stack)
+void	ra(t_list **stack)
 {
-	*stack = swap(*stack);
-	ft_putendl_fd("sa", 1);
+	*stack = rotate(*stack);
+	ft_putendl_fd("ra", 1);
 }
 
-void	sb(t_list **stack)
+void	rb(t_list **stack)
 {
-	*stack = swap(*stack);
-	ft_putendl_fd("sb", 1);
+	*stack = rotate(*stack);
+	ft_putendl_fd("rb", 1);
 }
 
-void	ss(t_list **stack_a, t_list **stack_b)
+void	rr(t_list **stack_a, t_list **stack_b)
 {
-	*stack_a = swap(*stack_a);
-	*stack_b = swap(*stack_b);
-	ft_putendl_fd("ss", 1);
+	*stack_a = rotate(*stack_a);
+	*stack_b = rotate(*stack_b);
+	ft_putendl_fd("rr", 1);
 }
