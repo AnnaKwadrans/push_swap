@@ -6,7 +6,7 @@
 /*   By: akwadran <akwadran@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 12:21:01 by akwadran          #+#    #+#             */
-/*   Updated: 2025/01/11 19:07:26 by akwadran         ###   ########.fr       */
+/*   Updated: 2025/01/19 13:14:14 by akwadran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,21 +31,25 @@ int	main(int argc, char *argv[])
 	//sb(&stack_a);
 	//print_list(stack_a);
 	//ft_putstr_fd("*************", 1);
+	printf("%d\n", is_sorted(stack_a));
 	array_test = ft_split("11 12 13 14 15", ' ');
 	stack_b = init_list(array_test);
 	print_list(stack_b);
+	printf("%d\n", is_sorted(stack_b));
 	//ss(&stack_a, &stack_b);
 	//push(stack_a, stack_b);
 	//stack_b = reverse_rotate(stack_b);
 	//print_list(stack_a);
 	//print_list(stack_b);
 	//rrr(&stack_a, &stack_b);
+	/*
 	pa(&stack_a, &stack_b);
 	print_list(stack_a);
 	print_list(stack_b);
 	pb(&stack_a, &stack_b);
 	print_list(stack_a);
 	print_list(stack_b);
+	*/
 	ft_lstclear(&stack_a, free);
 	ft_lstclear(&stack_b, free);
 	return (0);

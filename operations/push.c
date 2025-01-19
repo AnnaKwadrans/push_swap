@@ -6,7 +6,7 @@
 /*   By: akwadran <akwadran@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 17:07:45 by akwadran          #+#    #+#             */
-/*   Updated: 2025/01/11 19:08:59 by akwadran         ###   ########.fr       */
+/*   Updated: 2025/01/19 13:20:43 by akwadran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,18 @@ void	push(t_list **stack1, t_list **stack2)
 
 void	pa(t_list **stack_a, t_list **stack_b)
 {
-	push(stack_a, stack_b);
-	ft_putendl_fd("pa", 1);
+	if (*stack_b != NULL)
+	{
+		push(stack_a, stack_b);
+		ft_putendl_fd("pa", 1);
+	}
 }
 
 void	pb(t_list **stack_a, t_list **stack_b)
 {
-	push(stack_b, stack_a);
-	ft_putendl_fd("pb", 1);
+	if (*stack_a != NULL)
+	{
+		push(stack_b, stack_a);
+		ft_putendl_fd("pb", 1);
+	}
 }

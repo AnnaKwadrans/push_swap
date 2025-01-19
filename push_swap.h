@@ -6,7 +6,7 @@
 /*   By: akwadran <akwadran@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 16:22:11 by akwadran          #+#    #+#             */
-/*   Updated: 2025/01/11 19:08:26 by akwadran         ###   ########.fr       */
+/*   Updated: 2025/01/19 14:08:18 by akwadran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,7 @@ t_list	*reverse_rotate(t_list *stack);
 void	rra(t_list **stack);
 void	rrb(t_list **stack);
 void	rrr(t_list **stack_a, t_list **stack_b);
+
+int	is_sorted(t_list *stack);
 
 #endif
