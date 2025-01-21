@@ -6,14 +6,14 @@
 /*   By: akwadran <akwadran@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 16:22:11 by akwadran          #+#    #+#             */
-/*   Updated: 2025/01/19 14:08:18 by akwadran         ###   ########.fr       */
+/*   Updated: 2025/01/20 19:26:18 by akwadran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # include <stdio.h> //quitar
-# include "Libft/libft.h"
+# include "libft/libft.h"
 
 char	**format_arguments(int argc, char** argv);
 void	print_array(char **args_array); //quitar
@@ -40,5 +40,6 @@ void	rrb(t_list **stack);
 void	rrr(t_list **stack_a, t_list **stack_b);
 
 int	is_sorted(t_list *stack);
+void	sort(t_list *stack_a, t_list *stack_b);
 
 #endif

@@ -6,11 +6,11 @@
 /*   By: akwadran <akwadran@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 18:01:01 by akwadran          #+#    #+#             */
-/*   Updated: 2025/01/11 18:42:06 by akwadran         ###   ########.fr       */
+/*   Updated: 2025/01/20 19:30:03 by akwadran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 static t_list	*ft_lst2last(t_list *lst)
 {

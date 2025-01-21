@@ -6,11 +6,11 @@
 /*   By: akwadran <akwadran@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 17:42:46 by akwadran          #+#    #+#             */
-/*   Updated: 2025/01/19 13:30:29 by akwadran         ###   ########.fr       */
+/*   Updated: 2025/01/20 19:30:12 by akwadran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 t_list	*rotate(t_list *stack)
 {

@@ -6,11 +6,11 @@
 /*   By: akwadran <akwadran@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 17:07:45 by akwadran          #+#    #+#             */
-/*   Updated: 2025/01/19 13:20:43 by akwadran         ###   ########.fr       */
+/*   Updated: 2025/01/20 19:29:52 by akwadran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	push(t_list **stack1, t_list **stack2)
 {
