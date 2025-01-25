@@ -6,7 +6,7 @@
 /*   By: akwadran <akwadran@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 17:07:45 by akwadran          #+#    #+#             */
-/*   Updated: 2025/01/25 19:30:18 by akwadran         ###   ########.fr       */
+/*   Updated: 2025/01/26 00:28:25 by akwadran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,17 @@ void	push(t_stack **stack1, t_stack **stack2)
 	t_stack	*stack2_second;
 	t_stack	*stack2_first;
 
-	if (*stack2)
+	if (*stack2 && (*stack2)->next)
 	{
 		stack2_first = *stack2;
 		stack2_second = (*stack2)->next;
 		append_node_front(stack1, stack2_first);
 		*stack2 = stack2_second;
+		(*stack2)->prev = NULL;
+	}
+	else if (*stack2)
+	{
+		append_node_front(stack1, *stack2);
 		(*stack2)->prev = NULL;
 	}
 }
