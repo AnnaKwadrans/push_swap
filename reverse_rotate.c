@@ -6,51 +6,51 @@
 /*   By: akwadran <akwadran@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 18:01:01 by akwadran          #+#    #+#             */
-/*   Updated: 2025/01/20 19:30:03 by akwadran         ###   ########.fr       */
+/*   Updated: 2025/01/25 20:00:34 by akwadran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
-static t_list	*ft_lst2last(t_list *lst)
+static t_stack	*find_2last(t_stack *lst)
 {
-	t_list	*aux;
+	t_stack	*aux;
 
-	if (lst == NULL)
+	if (!lst)
 		return (NULL);
 	aux = lst;
-	while (aux->next->next != NULL)
+	while (aux->next->next)
 		aux = aux->next;
 	return (aux);
 }
 
-t_list	*reverse_rotate(t_list *stack)
+t_stack	*reverse_rotate(t_stack *stack)
 {
-	t_list	*last;
-	t_list	*second_last;
+	t_stack	*last;
+	t_stack	*second_last;
 
-	if (stack != NULL && stack->next != NULL)
+	if (stack && stack->next)
 	{
-		last = ft_lstlast(stack);
-		second_last = ft_lst2last(stack);
+		last = find_last(stack);
+		second_last = find_2last(stack);
 		second_last->next = NULL;
-		ft_lstadd_front(&stack, last);
+		append_node_front(&stack, last);
 	}
 	return (stack);
 }
 
-void	rra(t_list **stack)
+void	rra(t_stack **stack)
 {
 	*stack = reverse_rotate(*stack);
 	ft_putendl_fd("rra", 1);
 }
 
-void	rrb(t_list **stack)
+void	rrb(t_stack **stack)
 {
 	*stack = reverse_rotate(*stack);
 	ft_putendl_fd("rrb", 1);
 }
-void	rrr(t_list **stack_a, t_list **stack_b)
+void	rrr(t_stack **stack_a, t_stack **stack_b)
 {
 	*stack_a = reverse_rotate(*stack_a);
 	*stack_b = reverse_rotate(*stack_b);

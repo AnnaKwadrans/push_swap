@@ -6,7 +6,7 @@
 /*   By: akwadran <akwadran@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 12:21:01 by akwadran          #+#    #+#             */
-/*   Updated: 2025/01/20 19:26:48 by akwadran         ###   ########.fr       */
+/*   Updated: 2025/01/25 14:57:53 by akwadran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,10 @@ int	main(int argc, char *argv[])
 	print_list(stack_b);
 	ft_lstclear(&stack_a, free);
 	ft_lstclear(&stack_b, free);
+	if (argc == 2)
+	{
+		free_array(args_array);
+		args_array = NULL;
+	}
 	return (0);
 }

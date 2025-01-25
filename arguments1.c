@@ -6,7 +6,7 @@
 /*   By: akwadran <akwadran@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 12:24:30 by akwadran          #+#    #+#             */
-/*   Updated: 2025/01/19 14:07:41 by akwadran         ###   ########.fr       */
+/*   Updated: 2025/01/25 14:57:50 by akwadran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ char	**format_arguments(int argc, char **argv)
 		exit(1);
 	else if (argc == 2)
 		args_array = ft_split(argv[1], ' ');
-	// else if (argc > 2)
+	else if (argc > 2)
+		args_array = argv + 1;
 	return (args_array);
 }
 
@@ -39,7 +40,7 @@ void	print_array(char **args_array) //quitar
 	free(args_array);
 }
 
-t_list	*init_list(char **args_array)
+t_list	*init_stack(char **args_array)
 {
 	t_list	*stack_a;
 	int	i;
