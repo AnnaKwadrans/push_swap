@@ -6,7 +6,7 @@
 /*   By: akwadran <akwadran@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 19:01:00 by akwadran          #+#    #+#             */
-/*   Updated: 2025/01/25 20:20:15 by akwadran         ###   ########.fr       */
+/*   Updated: 2025/01/25 21:39:47 by akwadran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,11 @@ void    append_node_back(t_stack **stack, t_stack *new_node)
         if (new_node)
         {
                 if (*stack == NULL)
+                {
                         *stack = new_node;
+                        (*stack)->next = NULL;
+                        (*stack)->prev = NULL;
+                }
                 else
                 {
                         last_node = find_last(*stack);
@@ -44,9 +48,13 @@ void    free_stack(t_stack *stack)
 {
         t_stack *aux;
         
+        aux = stack;
         while (stack)
         {
                 aux = stack->next;
+                stack->next = NULL;
+                stack->prev = NULL;
+                stack->target = NULL;
                 free(stack);
                 stack = aux;
         }
@@ -57,7 +65,11 @@ void    append_node_front(t_stack **stack, t_stack *new_node)
         if (new_node)
         {
                 if (!*stack)
+                {
                         *stack = new_node;
+                        (*stack)->next = NULL;
+                        (*stack)->prev = NULL;
+                }
                 else
                 {
                         (*stack)->prev = new_node;
@@ -67,13 +79,15 @@ void    append_node_front(t_stack **stack, t_stack *new_node)
         }
 }
 
-bool	is_sorted(t_stack *stack)
+int     stack_len(t_stack *stack)
 {
-	while(stack && stack->next)
-	{
-		if (stack->next->num < stack->num)
-			return (0);
-		stack = stack->next;
-	}
-	return (1);
+        int     len;
+
+        len = 0;
+        while(stack)
+        {
+                len++;
+                stack = stack->next;
+        }
+        return (len);
 }

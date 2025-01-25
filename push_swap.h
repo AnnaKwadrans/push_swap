@@ -6,7 +6,7 @@
 /*   By: akwadran <akwadran@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 16:22:11 by akwadran          #+#    #+#             */
-/*   Updated: 2025/01/25 20:29:00 by akwadran         ###   ########.fr       */
+/*   Updated: 2025/01/25 22:59:20 by akwadran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 typedef struct s_stack
 {
         int             num;
-        int             push_price;
+        int             cost;
         int             index;
         bool            cheapest;
         struct s_stack  *next;
@@ -39,7 +39,8 @@ void    append_node_back(t_stack **stack, t_stack *new_node);
 t_stack *find_last(t_stack *stack);
 void    free_stack(t_stack *stack);
 void    append_node_front(t_stack **stack, t_stack *new_node);
-bool	is_sorted(t_stack *stack);
+int     stack_len(t_stack *stack);
+
 
 //void	print_array(char **args_array); //quitar
 //t_list	*init_list(char **args_array);
@@ -64,6 +65,13 @@ void	rra(t_stack **stack);
 void	rrb(t_stack **stack);
 void	rrr(t_stack **stack_a, t_stack **stack_b);
 
-void	sort(t_stack **stack_a, t_stack **stack_b);
+bool	is_sorted(t_stack *stack);
+void    sort_three(t_stack **stack);
+void	sort(t_stack **a, t_stack **b);
+void    set_index(t_stack *stack);
+void    set_targets(t_stack *a, t_stack *b);
+void    calc_push_cost(t_stack *a, t_stack *b);
+void    move_stacks(t_stack **a, t_stack **b);
+
 
 #endif
