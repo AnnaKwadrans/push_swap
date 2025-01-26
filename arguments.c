@@ -6,7 +6,7 @@
 /*   By: akwadran <akwadran@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 14:55:29 by akwadran          #+#    #+#             */
-/*   Updated: 2025/01/25 20:19:55 by akwadran         ###   ########.fr       */
+/*   Updated: 2025/01/26 08:30:50 by akwadran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ t_stack	*init_stack(char **args_array, int argc)
 	}
 	if (argc == 2)
         {
-                free(args_array);
+                free_array(args_array);
 	        args_array = NULL;
         }
         return (stack_a);
@@ -75,7 +75,14 @@ void	print_stack(t_stack *stack) //quitar
 {
 	while (stack != NULL)
 	{
-		printf("%d\n", stack->num);
+		printf("num %d\n", stack->num);
+		printf("idx %d\n", stack->index);
+		printf("cst %d\n", stack->cost);
+		printf("upp %d\n", stack->is_upper_half);
+		printf("nxt %p\n", &stack->next);
+		printf("prv %p\n", &stack->prev);
+		printf("trg %p\n", &stack->target);
+		printf("trgupp %d\n", stack->target->is_upper_half);
 		stack = stack->next;
 	}
 }

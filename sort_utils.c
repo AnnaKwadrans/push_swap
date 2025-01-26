@@ -6,7 +6,7 @@
 /*   By: akwadran <akwadran@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 07:53:40 by akwadran          #+#    #+#             */
-/*   Updated: 2025/01/26 08:01:20 by akwadran         ###   ########.fr       */
+/*   Updated: 2025/01/26 08:16:27 by akwadran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ void    set_targets(t_stack *a, t_stack *b)
 
 void    calc_push_cost(t_stack *b)
 {
+        printf("calc_push_cost\nSTACK B\n");  // QUITAR
+        print_stack(b);      // QUITAR
         while (b)
         {
                 if (b->is_upper_half && b->target->is_upper_half)
