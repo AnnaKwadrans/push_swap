@@ -6,7 +6,7 @@
 /*   By: akwadran <akwadran@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 18:01:01 by akwadran          #+#    #+#             */
-/*   Updated: 2025/01/25 20:00:34 by akwadran         ###   ########.fr       */
+/*   Updated: 2025/01/26 14:15:50 by akwadran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ void	rrb(t_stack **stack)
 	*stack = reverse_rotate(*stack);
 	ft_putendl_fd("rrb", 1);
 }
+
 void	rrr(t_stack **stack_a, t_stack **stack_b)
 {
 	*stack_a = reverse_rotate(*stack_a);
