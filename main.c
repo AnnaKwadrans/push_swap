@@ -6,7 +6,7 @@
 /*   By: akwadran <akwadran@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 13:36:25 by akwadran          #+#    #+#             */
-/*   Updated: 2025/01/25 21:34:49 by akwadran         ###   ########.fr       */
+/*   Updated: 2025/01/26 07:45:06 by akwadran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,11 @@ int     main(int argc, char **argv)
                 else
                         sort(&a, &b);
         }
+        
         print_stack(a);
         printf("***\n");
         print_stack(b);
-
+        
         free_stack(a);
         free_stack(b);
         return (0);

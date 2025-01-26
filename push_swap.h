@@ -6,7 +6,7 @@
 /*   By: akwadran <akwadran@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 16:22:11 by akwadran          #+#    #+#             */
-/*   Updated: 2025/01/26 00:16:22 by akwadran         ###   ########.fr       */
+/*   Updated: 2025/01/26 07:56:02 by akwadran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ typedef struct s_stack
         int             index;
         int             cost;
         bool            is_upper_half;
-        bool            cheapest;
         struct s_stack  *next;
         struct s_stack  *prev;
         struct s_stack  *target;
@@ -39,11 +38,6 @@ t_stack *find_last(t_stack *stack);
 void    free_stack(t_stack *stack);
 void    append_node_front(t_stack **stack, t_stack *new_node);
 int     stack_len(t_stack *stack);
-
-
-//void	print_array(char **args_array); //quitar
-//t_list	*init_list(char **args_array);
-//void	print_list(t_list *stack); //quitar
 
 t_stack	*swap(t_stack *stack);
 void	sa(t_stack **stack);
@@ -67,11 +61,12 @@ void	rrr(t_stack **stack_a, t_stack **stack_b);
 bool	is_sorted(t_stack *stack);
 void    sort_three(t_stack **stack);
 void	sort(t_stack **a, t_stack **b);
+t_stack *find_cheapest_node(t_stack *b);
+t_stack *find_lowest_value(t_stack *stack);
+
 void    reset_values(t_stack *stack);
 void    set_targets(t_stack *a, t_stack *b);
 void    calc_push_cost(t_stack *b);
-t_stack *find_cheapest_node(t_stack *b);
 void    move_stacks(t_stack **a, t_stack **b, t_stack *cheapest);
-
 
 #endif
