@@ -6,13 +6,12 @@
 /*   By: akwadran <akwadran@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 16:22:11 by akwadran          #+#    #+#             */
-/*   Updated: 2025/02/04 21:42:34 by akwadran         ###   ########.fr       */
+/*   Updated: 2025/02/05 01:33:44 by akwadran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-# include <stdio.h> //quitar
 # include <stdbool.h>
 # include <limits.h>
 # include "libft/libft.h"
@@ -32,7 +31,7 @@ char	**format_arguments(int argc, char **argv);
 void	free_array(char **args_array);
 t_stack	*init_stack(char **args_array, int argc);
 t_stack	*create_node(const char *arg);
-void	print_stack(t_stack *stack); //quitar
+//void	print_stack(t_stack *stack); //quitar
 
 bool	valid_arguments(char **args_array);
 
@@ -67,14 +66,13 @@ void	sort_three(t_stack **stack);
 void    push_to_a(t_stack **a, t_stack **b);
 void    rotate_a(t_stack **a);
 
-void	reset_values(t_stack *stack);
 void	set_targets_asc(t_stack *a, t_stack *b);
 void	set_targets_desc(t_stack *a, t_stack *b);
 void	calc_push_cost(t_stack *b, int len_a, int len_b);
-void	rotate_for_push_to_b(t_stack **dst, t_stack **src, t_stack *cheapest);
+void	rotate_for_push_to_b(t_stack **a, t_stack **b, t_stack *cheapest);
 void	rotate_for_push_to_a(t_stack **a, t_stack **b, t_stack *cheapest);
-void	move_stacks(t_stack **a, t_stack **b, t_stack *cheapest, char dst_stack);
 
+void	reset_values(t_stack *stack);
 bool	is_sorted(t_stack *stack);
 t_stack	*find_cheapest_node(t_stack *stack);
 t_stack	*find_lowest_value(t_stack *stack);

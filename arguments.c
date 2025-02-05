@@ -6,7 +6,7 @@
 /*   By: akwadran <akwadran@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 14:55:29 by akwadran          #+#    #+#             */
-/*   Updated: 2025/01/31 00:03:41 by akwadran         ###   ########.fr       */
+/*   Updated: 2025/02/05 01:23:01 by akwadran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ t_stack	*create_node(const char *arg)
 	new_node->target = NULL;
 	return (new_node);
 }
-
+/*
 void	print_stack(t_stack *stack) //quitar
 {
 	while (stack != NULL)
@@ -94,3 +94,4 @@ void	print_stack(t_stack *stack) //quitar
 		stack = stack->next;
 	}
 }
+*/
