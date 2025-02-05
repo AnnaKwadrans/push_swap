@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: akwadran <akwadran@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/26 07:53:40 by akwadran          #+#    #+#             */
-/*   Updated: 2025/01/26 15:52:11 by akwadran         ###   ########.fr       */
+/*   Created: 2025/01/25 20:16:39 by akwadran          #+#    #+#             */
+/*   Updated: 2025/02/05 00:50:22 by akwadran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,110 +17,95 @@ void	reset_values(t_stack *stack)
 	int	i;
 	int	len;
 
+	if (stack == NULL)
+		return ;
 	len = stack_len(stack);
 	i = 0;
 	while (stack)
 	{
 		stack->index = i;
 		stack->cost = -1;
-		if (stack->index <= len / 2)
+		/*
+		if (stack->index + 1 <= len / 2)
 			stack->is_upper_half = 1;
 		else
 			stack->is_upper_half = 0;
+		*/
+		
+		if (len % 2 == 0 && stack->index + 1 <= len / 2)
+			stack->is_upper_half = 1;
+		else if (len % 2 == 1 && stack->index <= len / 2)
+			stack->is_upper_half = 1;
+		else
+			stack->is_upper_half = 0;
+		
 		stack->target = NULL;
 		i++;
 		stack = stack->next;
 	}
 }
 
-void	set_targets(t_stack *a, t_stack *b)
+bool	is_sorted(t_stack *stack)
 {
-	t_stack	*start_a;
-	t_stack	*lowest_a;
-
-	start_a = a;
-	while (b)
+	while (stack && stack->next)
 	{
-		b->target = NULL;
-		a = start_a;
-		while (a)
-		{
-			if ((a->num > b->num && !b->target) || (a->num > b->num
-					&& a->num < b->target->num))
-				b->target = a;
-			a = a->next;
-		}
-		if (!b->target)
-		{
-			//printf("!b->target\n");
-			a = start_a;
-			lowest_a = find_lowest_value(a);
-			//printf("%d\n", lowest_a->num);
-			//printf("%p\n", &lowest_a);
-			b->target = lowest_a;
-			//printf("%p, %d\n", b->target, b->target->num);
-		}
-		b = b->next;
+		if (stack->next->num < stack->num)
+			return (0);
+		stack = stack->next;
 	}
+	return (1);
 }
 
-void	calc_push_cost(t_stack *b)
+t_stack	*find_lowest_value(t_stack *stack)
 {
-	// CORREGIR
-	
-	/*printf("calc_push_cost\nSTACK B\n");  // QUITAR
-	print_stack(b);      // QUITAR */
-	int	cost_b;
-	int	cost_target;
-	int	len_b;
-	int	len_a;
+	t_stack	*lowest;
 
-	while (b)
+	if (stack == NULL)
+		return (NULL);
+	//printf("check lv start\n");
+	lowest = stack;
+	while (stack && stack->next)
 	{
-		if (b->is_upper_half && b->target->is_upper_half)
-		{
-			if (b->index > b->target->index)
-				b->cost = b->index;
-			else
-				b->cost = b->target->index;
-		}
-		else if (!b->is_upper_half && !b->target->is_upper_half)
-		{
-			if (b->index < b->target->index)
-				b->cost = b->index;
-			else
-				b->cost = b->target->index;
-		}
-		else
-			b->cost = b->index + b->target->index; // ESTÁ MAL
-		b = b->next;
+		if (stack->next->num < lowest->num)
+			lowest = stack->next;
+		stack = stack->next;
 	}
+	//printf("%p, %d\n", &lowest, lowest->num);
+	return (lowest);
 }
 
-void	move_stacks(t_stack **a, t_stack **b, t_stack *cheapest)
+t_stack	*find_highest_value(t_stack *stack)
 {
-	if (cheapest->is_upper_half && cheapest->target->is_upper_half)
+	t_stack	*highest;
+
+	if (stack == NULL)
+		return (NULL);
+	//printf("check lv start\n");
+	highest = stack;
+	while (stack && stack->next)
 	{
-		while (*a != cheapest->target && *b != cheapest)
-			rr(a, b);
+		if (stack->next->num > highest->num)
+			highest = stack->next;
+		stack = stack->next;
 	}
-	else if (!cheapest->is_upper_half && !cheapest->target->is_upper_half)
+	//printf("%p, %d\n", &lowest, lowest->num);
+	return (highest);
+}
+
+t_stack	*find_cheapest_node(t_stack *stack)
+{
+	t_stack	*cheapest_node;
+
+	if (stack == NULL)
+		return (NULL);
+	cheapest_node = stack;
+	while (stack && stack->next)
 	{
-		while (*a != cheapest->target && *b != cheapest)
-			rrr(a, b);
+		if (cheapest_node->cost > stack->next->cost)
+			cheapest_node = stack->next;
+		//printf("cost cmp %d i %d: %d, num %d\n", stack->num, stack->next->num, stack->cost, stack->next->cost);
+		//printf("cheapest node %d, num %d\n", cheapest_node->index, cheapest_node->num);
+		stack = stack->next;
 	}
-	while (*b != cheapest)
-	{
-		if (cheapest->is_upper_half)
-			rb(b);
-		else
-			rrb(b);
-	}
-	while (*a != cheapest->target)
-	{
-		if (cheapest->target->is_upper_half)
-			ra(a);
-		else
-			rra(a);
-	}
+	return (cheapest_node);
 }

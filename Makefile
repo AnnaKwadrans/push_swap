@@ -1,9 +1,9 @@
 RM = rm -f
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -fsanitize=address
 NAME = push_swap
 
-SRC = main.c arguments.c args_validate.c stack_utils.c push.c swap.c rotate.c reverse_rotate.c sort.c  sort_utils.c
+SRC = main.c arguments.c args_validate.c stack_utils.c push.c swap.c rotate.c reverse_rotate.c sort.c sort_utils.c
 
 OBJ = $(SRC:.c=.o)
 

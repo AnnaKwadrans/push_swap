@@ -6,7 +6,7 @@
 /*   By: akwadran <akwadran@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 14:55:29 by akwadran          #+#    #+#             */
-/*   Updated: 2025/01/26 15:36:47 by akwadran         ###   ########.fr       */
+/*   Updated: 2025/01/31 00:03:41 by akwadran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ char	**format_arguments(int argc, char **argv)
 	args_array = NULL;
 	if (argc <= 1)
 	{
-		printf("argc <=1\n");
 		ft_putendl_fd("Error", 1);
 		exit(1);
 	}
